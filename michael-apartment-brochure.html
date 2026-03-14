@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Apartment — A New Legacy Rising in Mulund</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --gold-dark: #9B7A45;
+    --cream: #F8F4EE;
+    --ivory: #FDFAF5;
+    --charcoal: #1C1C1C;
+    --warm-grey: #6B6560;
+    --accent: #2C4A3E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 48px;
+    background: linear-gradient(to bottom, rgba(28,28,28,0.95), transparent);
+    transition: background 0.4s;
+  }
+  nav.scrolled { background: rgba(28,28,28,0.97); }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; letter-spacing: 0.25em; color: var(--gold);
+    text-transform: uppercase; font-weight: 400;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--gold-light); text-decoration: none;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    height: 100vh; position: relative; display: flex;
+    align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 60% 40%, rgba(201,169,110,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(44,74,62,0.2) 0%, transparent 50%),
+      linear-gradient(135deg, #0e0e0e 0%, #1c1c1c 50%, #121212 100%);
+  }
+  .hero-building-art {
+    position: absolute; right: 5%; bottom: 0;
+    width: 38%; height: 90%;
+    background: linear-gradient(to bottom, rgba(201,169,110,0.05), rgba(201,169,110,0.12));
+    clip-path: polygon(15% 100%, 10% 60%, 8% 40%, 12% 10%, 20% 5%, 80% 5%, 88% 10%, 90% 40%, 88% 60%, 85% 100%);
+    animation: buildingGlow 4s ease-in-out infinite alternate;
+  }
+  @keyframes buildingGlow {
+    from { opacity: 0.4; }
+    to { opacity: 0.8; }
+  }
+  .hero-lines {
+    position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+  }
+  .hero-lines::before, .hero-lines::after {
+    content: '';
+    position: absolute;
+    border: 1px solid rgba(201,169,110,0.08);
+    border-radius: 50%;
+  }
+  .hero-lines::before {
+    width: 600px; height: 600px;
+    top: 50%; left: 55%; transform: translate(-50%,-50%);
+    animation: ringPulse 6s ease-in-out infinite;
+  }
+  .hero-lines::after {
+    width: 900px; height: 900px;
+    top: 50%; left: 55%; transform: translate(-50%,-50%);
+    animation: ringPulse 6s ease-in-out infinite 1.5s;
+  }
+  @keyframes ringPulse {
+    0%, 100% { opacity: 0.3; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 0.7; transform: translate(-50%,-50%) scale(1.03); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 660px; padding: 0 48px;
+    animation: fadeUp 1.2s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag {
+    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px; display: block;
+    font-weight: 500;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--ivory);
+    margin-bottom: 8px;
+  }
+  .hero-title em { color: var(--gold); font-style: italic; }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 300; font-style: italic;
+    color: var(--gold-light); margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
+  .hero-desc {
+    font-size: 0.82rem; line-height: 1.9; color: rgba(248,244,238,0.65);
+    max-width: 480px; margin-bottom: 48px; letter-spacing: 0.02em;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 14px 36px;
+    background: var(--gold); color: var(--charcoal);
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; font-family: 'Montserrat', sans-serif;
+    border: none; cursor: pointer; text-decoration: none;
+    transition: all 0.3s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-dark); color: var(--ivory); transform: translateY(-2px); }
+  .btn-secondary {
+    padding: 14px 36px;
+    background: transparent; color: var(--gold);
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 500; font-family: 'Montserrat', sans-serif;
+    border: 1px solid rgba(201,169,110,0.5); cursor: pointer; text-decoration: none;
+    transition: all 0.3s; display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(201,169,110,0.08); }
+
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(201,169,110,0.5); font-size: 0.6rem; letter-spacing: 0.3em;
+    text-transform: uppercase; animation: scrollBounce 2s ease-in-out infinite;
+  }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(201,169,110,0.5), transparent); }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex; align-items: center; gap: 20px;
+    padding: 0 48px; margin: 0 auto; max-width: 1200px;
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(201,169,110,0.3), transparent); }
+  .divider-icon { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.3em; white-space: nowrap; }
+
+  /* SECTION BASE */
+  section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px; display: block; font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300; line-height: 1.2;
+    color: var(--ivory); margin-bottom: 24px;
+  }
+  .section-body {
+    font-size: 0.82rem; line-height: 1.9;
+    color: rgba(248,244,238,0.6); max-width: 600px;
+    letter-spacing: 0.02em;
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: linear-gradient(135deg, rgba(201,169,110,0.12), rgba(201,169,110,0.06));
+    border-top: 1px solid rgba(201,169,110,0.2);
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+    padding: 60px 48px;
+  }
+  .stats-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  }
+  .stat-item {
+    padding: 20px 40px;
+    border-right: 1px solid rgba(201,169,110,0.2);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; color: var(--gold);
+    line-height: 1; display: block; margin-bottom: 8px;
+  }
+  .stat-unit { font-size: 1.2rem; color: var(--gold-light); }
+  .stat-label {
+    font-size: 0.62rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: rgba(248,244,238,0.5);
+    font-weight: 500;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .about-img-placeholder {
+    position: relative; height: 500px;
+    background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(44,74,62,0.15));
+    border: 1px solid rgba(201,169,110,0.2); overflow: hidden;
+  }
+  .about-img-placeholder::before {
+    content: 'MICHAEL\AAPRTMENT\A MULUND'; white-space: pre;
+    position: absolute; inset: 0; display: flex; align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem; letter-spacing: 0.3em;
+    color: rgba(201,169,110,0.25); text-align: center;
+    padding: 40px;
+  }
+  .building-silhouette {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 160px; height: 380px;
+    background: linear-gradient(to top, rgba(201,169,110,0.25), rgba(201,169,110,0.05));
+    clip-path: polygon(20% 100%, 15% 55%, 18% 30%, 25% 8%, 50% 3%, 75% 8%, 82% 30%, 85% 55%, 80% 100%);
+  }
+  .building-windows {
+    position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
+    display: grid; grid-template-columns: repeat(4, 12px); gap: 8px;
+    width: 80px;
+  }
+  .window-dot {
+    width: 8px; height: 8px;
+    background: rgba(201,169,110,0.4); border-radius: 1px;
+    animation: windowBlink 3s ease-in-out infinite;
+  }
+  .window-dot:nth-child(2n) { animation-delay: 0.5s; }
+  .window-dot:nth-child(3n) { animation-delay: 1s; }
+  @keyframes windowBlink {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+  .corner-badge {
+    position: absolute; top: 20px; right: 20px;
+    width: 90px; height: 90px; border-radius: 50%;
+    border: 1px solid rgba(201,169,110,0.4);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    font-size: 0.52rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    background: rgba(28,28,28,0.8);
+  }
+  .corner-badge strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300;
+    display: block; line-height: 1;
+  }
+
+  /* LOCATION */
+  .location-full {
+    background: linear-gradient(180deg, var(--charcoal) 0%, rgba(14,20,18,1) 100%);
+    padding: 100px 0;
+  }
+  .location-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  .location-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px;
+  }
+  .location-card {
+    padding: 32px; border: 1px solid rgba(201,169,110,0.15);
+    background: rgba(201,169,110,0.03);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .location-card:hover {
+    border-color: rgba(201,169,110,0.35);
+    background: rgba(201,169,110,0.06);
+  }
+  .loc-icon {
+    width: 36px; height: 36px; margin-bottom: 20px;
+    border: 1px solid rgba(201,169,110,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .loc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; color: var(--ivory); margin-bottom: 12px; font-weight: 400;
+  }
+  .loc-items { list-style: none; }
+  .loc-items li {
+    font-size: 0.78rem; padding: 8px 0;
+    border-bottom: 1px solid rgba(201,169,110,0.08);
+    color: rgba(248,244,238,0.6); display: flex;
+    justify-content: space-between; letter-spacing: 0.02em;
+  }
+  .loc-items li:last-child { border-bottom: none; }
+  .loc-items .dist { color: var(--gold); font-weight: 500; }
+
+  /* UNIT PLANS */
+  .units-section { background: rgba(248,244,238,0.02); }
+  .units-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 60px;
+  }
+  .unit-card {
+    padding: 40px 32px;
+    background: rgba(28,28,28,0.8);
+    border: 1px solid rgba(201,169,110,0.1);
+    transition: all 0.4s; cursor: pointer;
+    position: relative; overflow: hidden;
+  }
+  .unit-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    transform: scaleX(0); transition: transform 0.4s;
+  }
+  .unit-card:hover::before { transform: scaleX(1); }
+  .unit-card:hover { background: rgba(201,169,110,0.05); border-color: rgba(201,169,110,0.3); }
+  .unit-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; color: var(--gold); font-weight: 300;
+    line-height: 1; margin-bottom: 8px;
+  }
+  .unit-name {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 28px; font-weight: 500;
+  }
+  .unit-specs { list-style: none; margin-bottom: 28px; }
+  .unit-specs li {
+    font-size: 0.76rem; padding: 10px 0;
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+    color: rgba(248,244,238,0.7); display: flex;
+    justify-content: space-between; letter-spacing: 0.02em;
+  }
+  .unit-specs li:last-child { border-bottom: none; }
+  .unit-specs .val { color: var(--ivory); font-weight: 500; }
+  .unit-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; color: var(--gold); font-weight: 300;
+  }
+  .unit-price-note {
+    font-size: 0.6rem; color: rgba(248,244,238,0.4);
+    letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px;
+  }
+
+  /* AMENITIES */
+  .amenities-bg {
+    background: linear-gradient(to bottom, #0a0a0a, var(--charcoal));
+    padding: 100px 0;
+  }
+  .amenities-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  .amenities-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; margin-top: 60px; background: rgba(201,169,110,0.1);
+  }
+  .amenity-item {
+    background: var(--charcoal);
+    padding: 36px 28px;
+    transition: background 0.3s;
+  }
+  .amenity-item:hover { background: rgba(201,169,110,0.05); }
+  .amenity-icon { font-size: 1.6rem; margin-bottom: 16px; display: block; }
+  .amenity-name {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(248,244,238,0.8); font-weight: 500;
+  }
+
+  /* MARKET CONTEXT */
+  .market-section { padding: 100px 48px; }
+  .market-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start; margin-top: 60px;
+  }
+  .comparables { }
+  .comp-title {
+    font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px; font-weight: 500;
+  }
+  .comp-table { width: 100%; border-collapse: collapse; }
+  .comp-table th {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-grey); font-weight: 500; padding: 12px 16px;
+    text-align: left; border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+  .comp-table td {
+    font-size: 0.76rem; padding: 14px 16px;
+    border-bottom: 1px solid rgba(201,169,110,0.06);
+    color: rgba(248,244,238,0.7);
+  }
+  .comp-table .highlight td { color: var(--gold); background: rgba(201,169,110,0.06); }
+  .comp-table td:last-child { color: var(--gold); font-weight: 500; }
+  .market-insights { }
+  .insight-card {
+    padding: 28px 32px; margin-bottom: 16px;
+    border-left: 2px solid var(--gold);
+    background: rgba(201,169,110,0.04);
+  }
+  .insight-title {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px; font-weight: 600;
+  }
+  .insight-body {
+    font-size: 0.78rem; line-height: 1.7;
+    color: rgba(248,244,238,0.65);
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: linear-gradient(135deg, rgba(201,169,110,0.1), rgba(44,74,62,0.15));
+    padding: 100px 48px;
+    border-top: 1px solid rgba(201,169,110,0.2);
+    text-align: center;
+  }
+  .contact-inner { max-width: 700px; margin: 0 auto; }
+  .contact-form { margin-top: 48px; display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-input {
+    padding: 16px 20px;
+    background: rgba(28,28,28,0.8);
+    border: 1px solid rgba(201,169,110,0.2);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem; font-weight: 300;
+    outline: none; transition: border-color 0.3s;
+    letter-spacing: 0.04em;
+  }
+  .form-input:focus { border-color: var(--gold); }
+  .form-input::placeholder { color: rgba(248,244,238,0.3); }
+  select.form-input option { background: #1c1c1c; }
+  .form-btn {
+    padding: 18px;
+    background: var(--gold); color: var(--charcoal);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 700; border: none; cursor: pointer;
+    transition: all 0.3s; margin-top: 8px;
+  }
+  .form-btn:hover { background: var(--gold-dark); color: var(--ivory); }
+
+  /* FOOTER */
+  footer {
+    background: #0a0a0a;
+    padding: 60px 48px 40px;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; color: var(--gold); margin-bottom: 16px;
+    font-weight: 300; letter-spacing: 0.15em;
+  }
+  .footer-desc {
+    font-size: 0.75rem; line-height: 1.8;
+    color: rgba(248,244,238,0.35); max-width: 300px;
+  }
+  .footer-col-title {
+    font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px; font-weight: 600;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li {
+    font-size: 0.75rem; color: rgba(248,244,238,0.4);
+    padding: 6px 0; letter-spacing: 0.05em;
+  }
+  .footer-bottom {
+    max-width: 1200px; margin: 40px auto 0;
+    padding-top: 24px; border-top: 1px solid rgba(201,169,110,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.62rem; color: rgba(248,244,238,0.25);
+    letter-spacing: 0.1em;
+  }
+  .footer-disc { font-size: 0.6rem; color: rgba(248,244,238,0.2); max-width: 1200px; margin: 20px auto 0; line-height: 1.6; }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 60px 24px; }
+    .about-grid, .location-grid, .market-grid, .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+    .units-grid { grid-template-columns: 1fr; }
+    .amenities-grid { grid-template-columns: repeat(2,1fr); }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.2); }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-building-art { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Michael Apartment</div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#residences">Residences</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#contact">Enquire</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-building-art"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Proposed Redevelopment · P.K. Road, Mulund West · Mumbai</span>
+    <h1 class="hero-title">Michael<br><em>Apartment</em></h1>
+    <p class="hero-subtitle">A New Legacy Rising</p>
+    <p class="hero-desc">
+      A landmark 30+ storey residential tower redefining the skyline of Mulund West — blending architectural elegance with an exceptional lifestyle on P.K. Road, Mumbai 400080.
+    </p>
+    <div class="hero-ctas">
+      <a href="#residences" class="btn-primary">Explore Residences</a>
+      <a href="#contact" class="btn-secondary">Register Interest</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <span class="stat-number">30<span class="stat-unit">+</span></span>
+      <span class="stat-label">Residential Floors</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <span class="stat-number">4<span class="stat-unit"> Lift</span></span>
+      <span class="stat-label">High-Speed Lifts</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <span class="stat-number">2&3<span class="stat-unit"> BHK</span></span>
+      <span class="stat-label">Residence Types</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-number">∞</span>
+      <span class="stat-label">City & Green Views</span>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="about-grid">
+    <div class="reveal">
+      <span class="section-tag">About the Project</span>
+      <h2 class="section-title">Where Heritage<br>Meets Elevation</h2>
+      <p class="section-body">
+        Michael Apartment CHS Ltd. is undergoing a transformative redevelopment on P.K. Road, Mulund West — one of Mumbai's most sought-after established suburbs. Designed by M/S. Speco Architect (Ar. Nitin Gunjal), the tower rises with curvaceous architectural lines, a dramatic podium base, and a rooftop swimming pool — setting a new benchmark for luxury living in Mulund.
+      </p>
+      <br>
+      <p class="section-body">
+        With dedicated commercial spaces on the lower floors, curated amenities on an exclusive amenity deck, and generously proportioned 2 & 3 BHK residences above, Michael Apartment is designed for families who demand more from their address.
+      </p>
+    </div>
+    <div class="about-img-placeholder reveal reveal-delay-2">
+      <div class="building-silhouette"></div>
+      <div class="building-windows">
+        <div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div>
+        <div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div>
+        <div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div>
+        <div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div><div class="window-dot"></div>
+      </div>
+      <div class="corner-badge"><strong>30+</strong>Storeys of<br>Living</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal"><div class="divider-line"></div><div class="divider-icon">◆ ARCHITECTURE ◆</div><div class="divider-line"></div></div>
+
+<!-- LOCATION -->
+<div class="location-full" id="location">
+  <div class="location-inner">
+    <div class="reveal">
+      <span class="section-tag">Location Advantage</span>
+      <h2 class="section-title">The Gateway to<br>Everything Mumbai</h2>
+      <p class="section-body">Mulund West sits at the confluence of Eastern Express Highway, LBS Marg, and the Mulund–Airoli Bridge — connecting residents to Thane, Navi Mumbai, Powai, and BKC with ease. The neighbourhood is known as Mumbai's Prince of Suburbs for its green cover, safety, and civic infrastructure.</p>
+    </div>
+    <div class="location-grid">
+      <div class="location-card reveal reveal-delay-1">
+        <div class="loc-icon">🚇</div>
+        <div class="loc-title">Connectivity</div>
+        <ul class="loc-items">
+          <li><span>Mulund Railway Station</span><span class="dist">~1 km</span></li>
+          <li><span>Eastern Express Highway</span><span class="dist">~2 km</span></li>
+          <li><span>Mulund–Airoli Bridge</span><span class="dist">~3 km</span></li>
+          <li><span>LBS Marg</span><span class="dist">~2 km</span></li>
+          <li><span>Mumbai Airport</span><span class="dist">~16 km</span></li>
+        </ul>
+      </div>
+      <div class="location-card reveal reveal-delay-2">
+        <div class="loc-icon">🏫</div>
+        <div class="loc-title">Education & Healthcare</div>
+        <ul class="loc-items">
+          <li><span>NES International School</span><span class="dist">Nearby</span></li>
+          <li><span>Billabong High International</span><span class="dist">~3 km</span></li>
+          <li><span>Fortis Hospital Mulund</span><span class="dist">~3 km</span></li>
+          <li><span>Sterling Wockhardt Hospital</span><span class="dist">~2 km</span></li>
+          <li><span>Apex Hospital</span><span class="dist">~1.5 km</span></li>
+        </ul>
+      </div>
+      <div class="location-card reveal reveal-delay-1">
+        <div class="loc-icon">🛍️</div>
+        <div class="loc-title">Retail & Lifestyle</div>
+        <ul class="loc-items">
+          <li><span>R Galleria Mall</span><span class="dist">~1.5 km</span></li>
+          <li><span>Viviana Mall, Thane</span><span class="dist">~5 km</span></li>
+          <li><span>Korum Mall</span><span class="dist">~6 km</span></li>
+          <li><span>D-Mart</span><span class="dist">~1 km</span></li>
+          <li><span>Kalidas Stadium</span><span class="dist">~1.3 km</span></li>
+        </ul>
+      </div>
+      <div class="location-card reveal reveal-delay-2">
+        <div class="loc-icon">🌿</div>
+        <div class="loc-title">Green & Business</div>
+        <ul class="loc-items">
+          <li><span>Sanjay Gandhi National Park</span><span class="dist">~8 km</span></li>
+          <li><span>Thane Employment Hub</span><span class="dist">~10 km</span></li>
+          <li><span>Navi Mumbai via Airoli</span><span class="dist">~20 km</span></li>
+          <li><span>BKC via EEH</span><span class="dist">~22 km</span></li>
+          <li><span>Powai Tech Park</span><span class="dist">~15 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESIDENCES -->
+<section id="residences">
+  <div class="reveal">
+    <span class="section-tag">Floor Plans & Pricing</span>
+    <h2 class="section-title">Your Residence,<br>Your Dimensions</h2>
+    <p class="section-body">Thoughtfully designed floor plates from 1st to 30th floor offer generous carpet areas, private decks, and cross-ventilated layouts. Pricing guided by current Mulund West market rates.</p>
+  </div>
+  <div class="units-grid">
+    <div class="unit-card reveal">
+      <div class="unit-type">2</div>
+      <div class="unit-name">BHK Residence</div>
+      <ul class="unit-specs">
+        <li><span>Carpet Area</span><span class="val">~650 – 750 sq.ft</span></li>
+        <li><span>Living + Dining</span><span class="val">3.20 × 6.85 m</span></li>
+        <li><span>Master Bedroom</span><span class="val">3.05 × 4.40 m</span></li>
+        <li><span>Kitchen</span><span class="val">2.10 × 3.35 m</span></li>
+        <li><span>Balcony / Deck</span><span class="val">Included</span></li>
+        <li><span>Bathrooms</span><span class="val">2</span></li>
+      </ul>
+      <div class="unit-price">₹ 1.50 – 1.90 Cr</div>
+      <div class="unit-price-note">* All-inclusive indicative price</div>
+    </div>
+    <div class="unit-card reveal reveal-delay-1">
+      <div class="unit-type">3</div>
+      <div class="unit-name">BHK Premium</div>
+      <ul class="unit-specs">
+        <li><span>Carpet Area</span><span class="val">~900 – 1,050 sq.ft</span></li>
+        <li><span>Living + Dining</span><span class="val">7.35 × 3.10 m</span></li>
+        <li><span>Master Bedroom</span><span class="val">3.60 × 2.90 m</span></li>
+        <li><span>Kitchen</span><span class="val">2.20 × 2.45 m</span></li>
+        <li><span>Private Deck</span><span class="val">3.10 × 1.50 m</span></li>
+        <li><span>Bathrooms</span><span class="val">3 incl. PW</span></li>
+      </ul>
+      <div class="unit-price">₹ 2.20 – 2.80 Cr</div>
+      <div class="unit-price-note">* All-inclusive indicative price</div>
+    </div>
+    <div class="unit-card reveal reveal-delay-2">
+      <div class="unit-type">3+</div>
+      <div class="unit-name">BHK Grand — High Floors</div>
+      <ul class="unit-specs">
+        <li><span>Carpet Area</span><span class="val">~1,000 – 1,200 sq.ft</span></li>
+        <li><span>Living + Dining</span><span class="val">8.80 – 9.15 × 3.10 m</span></li>
+        <li><span>Master Bedroom</span><span class="val">3.60 × 2.90 m</span></li>
+        <li><span>Deck</span><span class="val">3.10 × 2.15 m</span></li>
+        <li><span>Floor Height Bonus</span><span class="val">City Views</span></li>
+        <li><span>Bathrooms</span><span class="val">3 incl. PW</span></li>
+      </ul>
+      <div class="unit-price">₹ 2.80 – 3.40 Cr</div>
+      <div class="unit-price-note">* Premium floor surcharge applies</div>
+    </div>
+  </div>
+  <p style="margin-top:20px; font-size:0.65rem; color:rgba(248,244,238,0.3); letter-spacing:0.05em;">
+    Prices are indicative and based on prevailing Mulund West market rates (~₹24,000–28,000/sq.ft). Final pricing subject to RERA registration and developer communication. Contact project office for exact pricing.
+  </p>
+</section>
+
+<!-- AMENITIES -->
+<div class="amenities-bg" id="amenities">
+  <div class="amenities-inner">
+    <div class="reveal">
+      <span class="section-tag">Amenities</span>
+      <h2 class="section-title">Crafted for<br>How You Live</h2>
+      <p class="section-body">An exclusive amenity floor crowns the podium structure, offering a curated selection of leisure and fitness facilities designed for the modern resident.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-item reveal"><span class="amenity-icon">🏊</span><div class="amenity-name">Rooftop Pool</div></div>
+      <div class="amenity-item reveal reveal-delay-1"><span class="amenity-icon">🏋️</span><div class="amenity-name">Fitness Centre</div></div>
+      <div class="amenity-item reveal reveal-delay-2"><span class="amenity-icon">🎾</span><div class="amenity-name">Squash Court</div></div>
+      <div class="amenity-item reveal reveal-delay-3"><span class="amenity-icon">🏠</span><div class="amenity-name">Club House</div></div>
+      <div class="amenity-item reveal"><span class="amenity-icon">📬</span><div class="amenity-name">Letter Box Room</div></div>
+      <div class="amenity-item reveal reveal-delay-1"><span class="amenity-icon">🖥️</span><div class="amenity-name">BMS Room</div></div>
+      <div class="amenity-item reveal reveal-delay-2"><span class="amenity-icon">❄️</span><div class="amenity-name">AHU Room</div></div>
+      <div class="amenity-item reveal reveal-delay-3"><span class="amenity-icon">🌴</span><div class="amenity-name">Landscaped Deck</div></div>
+      <div class="amenity-item reveal"><span class="amenity-icon">🅿️</span><div class="amenity-name">Ample Parking</div></div>
+      <div class="amenity-item reveal reveal-delay-1"><span class="amenity-icon">🔥</span><div class="amenity-name">Fire Safety Systems</div></div>
+      <div class="amenity-item reveal reveal-delay-2"><span class="amenity-icon">🏪</span><div class="amenity-name">Ground Floor Commercial</div></div>
+      <div class="amenity-item reveal reveal-delay-3"><span class="amenity-icon">🛡️</span><div class="amenity-name">24/7 Security</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET -->
+<div class="market-section" id="market">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="reveal">
+      <span class="section-tag">Market Intelligence</span>
+      <h2 class="section-title">A Rising Market,<br>A Sound Investment</h2>
+      <p class="section-body">Mulund West commands strong buyer interest backed by infrastructure growth, metro connectivity, and an established residential micro-market that continues to appreciate.</p>
+    </div>
+    <div class="market-grid">
+      <div class="comparables reveal reveal-delay-1">
+        <div class="comp-title">Comparable Projects — Mulund</div>
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Type</th>
+              <th>Rate/sq.ft</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Piramal Revanta (West)</td><td>1–3 BHK</td><td>₹26,550–29,300</td></tr>
+            <tr><td>Runwal Sanctuary (West)</td><td>2–5 BHK</td><td>₹28,000+</td></tr>
+            <tr><td>Sheth Montana (West)</td><td>2–4 BHK</td><td>₹25,000+</td></tr>
+            <tr><td>L&T Rejuve 360 (West)</td><td>2–3.5 BHK</td><td>₹26,000+</td></tr>
+            <tr class="highlight"><td>Michael Apartment (West)</td><td>2–3 BHK</td><td>₹24,000–28,000*</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.6rem; color:rgba(248,244,238,0.3); margin-top:12px;">*Indicative pricing based on current Mulund West market rates.</p>
+      </div>
+      <div class="market-insights reveal reveal-delay-2">
+        <div class="insight-card">
+          <div class="insight-title">📈 Consistent Appreciation</div>
+          <div class="insight-body">Mulund West averaged ₹34,500/sq.ft in Q1 2025, up from ₹33,800 the prior year — confirming sustained buyer confidence and steady capital appreciation in the micro-market.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title">🚇 Metro & Infrastructure Boost</div>
+          <div class="insight-body">Proposed Goregaon–Mulund Link Road (GMLR) and Sonapur Metro Station are expected to significantly improve connectivity and drive demand for Mulund West addresses.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title">🏙️ Redevelopment Momentum</div>
+          <div class="insight-body">Over 55% of 2024 Mumbai property registrations occurred in suburbs including Mulund. Redevelopment projects fetch 1.5× older home prices, making Michael Apartment a compelling proposition.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title">💼 Strong Rental Demand</div>
+          <div class="insight-body">Monthly rents in Mulund West range ₹29,000–₹1.3 lakh depending on unit size, supported by proximity to Thane and Navi Mumbai employment hubs and excellent road connectivity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner reveal">
+    <span class="section-tag">Register Interest</span>
+    <h2 class="section-title" style="text-align:center;">Begin Your Journey<br>at Michael Apartment</h2>
+    <p class="section-body" style="text-align:center; margin:0 auto 0;">
+      Be among the first to receive project updates, floor plan details, and early-bird pricing. Our team will reach out personally.
+    </p>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <input type="text" class="form-input" placeholder="Full Name" required>
+        <input type="tel" class="form-input" placeholder="Mobile Number" required>
+      </div>
+      <div class="form-row">
+        <input type="email" class="form-input" placeholder="Email Address" required>
+        <select class="form-input">
+          <option value="">Preferred Unit Type</option>
+          <option>2 BHK</option>
+          <option>3 BHK Premium</option>
+          <option>3 BHK Grand (High Floor)</option>
+          <option>Commercial Space</option>
+        </select>
+      </div>
+      <input type="text" class="form-input" placeholder="How did you hear about us?">
+      <button type="submit" class="form-btn">Register My Interest</button>
+    </form>
+    <p style="margin-top:24px; font-size:0.65rem; color:rgba(248,244,238,0.25); letter-spacing:0.05em;">
+      📍 P.K. Road, Mulund West, Mumbai - 400080 &nbsp;|&nbsp; Architect: M/S. Speco Architect, Ar. Nitin Gunjal
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Michael Apartment CHS Ltd.</div>
+      <p class="footer-desc">A proposed redevelopment project on P.K. Road, Mulund West, Mumbai — designed by M/S. Speco Architect. Bringing a new standard of architecture and living to one of Mumbai's most established suburbs.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li>Overview</li>
+        <li>Location</li>
+        <li>Residences</li>
+        <li>Amenities</li>
+        <li>Market</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Project Details</div>
+      <ul class="footer-links">
+        <li>Location: Mulund West</li>
+        <li>Type: Residential + Commercial</li>
+        <li>Floors: 30+</li>
+        <li>Configurations: 2 & 3 BHK</li>
+        <li>Architect: Ar. Nitin Gunjal</li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-disc">
+    * This brochure is for information purposes only. All renderings are architectural representations. Floor plans, areas, and prices are indicative and subject to change. Final specifications will be as per the RERA-registered documents. Prices referenced are based on publicly available market data for Mulund West as of early 2026. This document does not constitute a legal offer or booking.
+  </p>
+  <div class="footer-bottom">
+    <span>© 2026 Michael Apartment CHS Ltd.</span>
+    <span>Designed with care for Mulund</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-btn');
+  btn.textContent = '✓ Interest Registered — We\'ll be in Touch!';
+  btn.style.background = '#2C4A3E';
+  btn.style.color = '#E8D5B0';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
